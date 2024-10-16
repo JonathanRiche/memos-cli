@@ -1,97 +1,82 @@
-# Memo CLI
+# Memos CLI
 
-Memo CLI is a command-line interface tool for managing memos using the Memo API. It allows users to retrieve, create, and update memos efficiently.
+Memos CLI is a command-line interface tool for managing memos through a self-hosted API. It allows users to retrieve, create, and update memos efficiently.
 
 ## Features
 
-- Retrieve all memos and save them locally
-- Create new memos
+- Retrieve all memos from the API
+- Create new memos (placeholder functionality)
 - Update existing memos (single or bulk update)
-- Verbose mode for detailed output
-- Secure API key management using environment variables
+- Save memos as local files
+- Maintain memo metadata in a JSON file
 
 ## Installation
 
 1. Ensure you have Rust and Cargo installed on your system.
 2. Clone this repository:
    ```
-   git clone https://github.com/yourusername/memo-cli.git
-   cd memo-cli
+   git clone https://github.com/yourusername/memos-cli.git
+   cd memos-cli
    ```
 3. Build the project:
    ```
    cargo build --release
    ```
-
-## Configuration
-
-1. Create a `.env` file in the project root directory.
-2. Add your Memo API key to the `.env` file:
-   ```
-   MEMOAPI=your_api_key_here
-   ```
+4. The binary will be available in `target/release/memos-cli`
 
 ## Usage
 
-Run the CLI tool using the following command structure:
+Before using the CLI, make sure to set the following environment variables:
+- `MEMOAPI`: Your API authentication token
+- `MEMO_DOMAIN`: The domain of your self-hosted memo instance
+
+You can set these in a `.env` file in the project root.
+
+### General Command Structure
 
 ```
-cargo run -- [OPTIONS] --endpoint <ENDPOINT>
+memos-cli [OPTIONS] --endpoint <ENDPOINT>
 ```
 
 ### Options
 
-- `-e, --endpoint <ENDPOINT>`: Specify the API endpoint to call (required)
-  - Available endpoints: `getMemos`, `createMemo`, `updateMemo`
-- `-o, --output-dir <OUTPUT_DIR>`: Set the output directory for files (default: "content")
-- `-v, --verbose`: Enable verbose mode
-- `-m, --memo-name <MEMO_NAME>`: Specify the memo name or UID (required for single memo update)
-- `-c, --content <CONTENT>`: Provide content for memo creation or update
-- `--bulk-update`: Enable bulk update of memos
+- `-m, --memo-domain <MEMO_DOMAIN>`: Memo domain of self-hosted instance
+- `-e, --endpoint <ENDPOINT>`: API endpoint to call (getMemos, createMemo, updateMemo)
+- `-o, --output-dir <OUTPUT_DIR>`: Output directory for files [default: content]
+- `-v, --verbose`: Verbose mode
+- `-n, --memo-name <MEMO_NAME>`: Memo name or uid (for single memo operations)
+- `-c, --content <CONTENT>`: Optional content for memo creation or update
+- `--bulk-update`: Flag for bulk update of memos
 
 ### Examples
 
 1. Retrieve all memos:
    ```
-   cargo run -- --endpoint getMemos
+   memos-cli --endpoint getMemos
    ```
 
-2. Create a new memo:
+2. Update a single memo:
    ```
-   cargo run -- --endpoint createMemo --content "New memo content"
-   ```
-
-3. Update a single memo:
-   ```
-   cargo run -- --endpoint updateMemo --memo-name memo_123 --content "Updated content"
+   memos-cli --endpoint updateMemo --memo-name <MEMO_UID> --content "Updated content"
    ```
 
-4. Bulk update all memos:
+3. Bulk update all memos:
    ```
-   cargo run -- --endpoint updateMemo --bulk-update
-   ```
-
-5. Use verbose mode:
-   ```
-   cargo run -- --endpoint getMemos --verbose
+   memos-cli --endpoint updateMemo --bulk-update
    ```
 
 ## Project Structure
 
-- `src/main.rs`: Entry point of the application
-- `src/cli.rs`: CLI argument parsing
-- `src/utils.rs`: Utility functions
-- `src/api/`: API-related modules
-  - `mod.rs`: API module definitions
-  - `getMemos.rs`: Retrieve memos functionality
-  - `createMemo.rs`: Create memo functionality
-  - `updateMemo.rs`: Update memo functionality
+- `src/`
+  - `main.rs`: Entry point of the application
+  - `cli.rs`: CLI argument parsing
+  - `utils.rs`: Utility functions
+  - `api/`
+    - `mod.rs`: API module definitions
+    - `getMemos.rs`: Functions for retrieving memos
+    - `createMemo.rs`: Functions for creating memos (placeholder)
+    - `updateMemo.rs`: Functions for updating memos
 
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
