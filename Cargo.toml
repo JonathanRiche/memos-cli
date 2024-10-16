@@ -4,7 +4,7 @@ version = "0.1.1"
 description = "A CLI tool for interacting with the Memos API through a self hosted instance."
 license = "MIT"
 edition = "2021"
-repository = "https://github.com/richetechguy/memos-cli"
+repository = "https://github.com/JonathanRiche/memos-cli"
 authors = ["RicheTechGuy <jonathan@blinkx.io>"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
