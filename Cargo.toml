@@ -1,7 +1,6 @@
 [package]
 name = "memos-cli"
 version = "0.1.0"
-edition = "2021"
 description = "A CLI tool for interacting with the Memos API through a self hosted instance."
 license = "MIT"
 edition = "2021"
