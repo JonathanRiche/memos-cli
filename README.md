@@ -1,4 +1,4 @@
-# Memos CLI
+#Use Memos CLI
 
 Memos CLI is a command-line interface tool for managing memos through a self-hosted API. It allows users to retrieve, create, and update memos efficiently.
 
@@ -16,13 +16,13 @@ Memos CLI is a command-line interface tool for managing memos through a self-hos
 2. Clone this repository:
    ```
    git clone https://github.com/yourusername/memos-cli.git
-   cd memos-cli
+   cd use-memos-cli
    ```
 3. Build the project:
    ```
    cargo build --release
    ```
-4. The binary will be available in `target/release/memos-cli`
+4. The binary will be available in `target/release/use-memos-cli`
 
 ## Usage
 
@@ -35,7 +35,7 @@ You can set these in a `.env` file in the project root.
 ### General Command Structure
 
 ```
-memos-cli [OPTIONS] --endpoint <ENDPOINT>
+use-memos-cli [OPTIONS] --endpoint <ENDPOINT>
 ```
 
 ### Options
@@ -52,17 +52,17 @@ memos-cli [OPTIONS] --endpoint <ENDPOINT>
 
 1. Retrieve all memos:
    ```
-   memos-cli --endpoint getMemos
+   use-memos-cli --endpoint getMemos
    ```
 
 2. Update a single memo:
    ```
-   memos-cli --endpoint updateMemo --memo-name <MEMO_UID> --content "Updated content"
+   use-memos-cli --endpoint updateMemo --memo-name <MEMO_UID> --content "Updated content"
    ```
 
 3. Bulk update all memos:
    ```
-   memos-cli --endpoint updateMemo --bulk-update
+   use-memos-cli --endpoint updateMemo --bulk-update
    ```
 
 ## Project Structure
